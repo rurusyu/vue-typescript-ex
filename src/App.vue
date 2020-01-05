@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+   {{ $store.state}}
   </div>
 </template>
 
@@ -14,7 +13,13 @@ import HelloWorld from './components/HelloWorld.vue';
     HelloWorld,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  created(){
+    console.log(this.$store);
+    // this.$store.dispatch('setRootData', 'test');
+    this.$store.dispatch('moduleB/editData', 'test');
+  }
+}
 </script>
 
 <style>
